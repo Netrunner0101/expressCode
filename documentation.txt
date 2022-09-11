@@ -1,0 +1,37 @@
+-----------------
+|NPM Automation.|
+-----------------
+
+npm install -g concurrently
+
+=> to run server and client same time 
+
+"scripts": {
+    // For running
+    "install-server": "npm install --prefix server",
+    "install-client": "npm install --prefix client",
+    "install": "concurrently 'npm:install-server' 'npm:install-client'",
+    
+    // For watch 
+    "server":  "npm run watch --prefix server",
+    "client": "npm start --prefix client",
+    "watch": "concurrently 'npm:server' 'npm:client'",
+
+    // Deploy so no need to use nodemon which is for development 
+    "deploy":"npm run build --prefix client && npm run start --prefix server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+
+----------------------------
+|Run project in production.|
+----------------------------
+
+Can run a build on 
+
+create '.env' file and add 
+
+BUILD_PATH=../server/public  
+
+Will create a react build on server file 
+
+
