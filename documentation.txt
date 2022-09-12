@@ -34,4 +34,8 @@ BUILD_PATH=../server/public
 
 Will create a react build on server file 
 
+----------------------------
+|Run morgan npm.|
+----------------------------
 
+!! MORGAN npm install --save morgan !! Must be install in server
