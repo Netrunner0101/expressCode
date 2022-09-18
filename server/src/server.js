@@ -12,12 +12,18 @@ const PORT = process.env.PORT || 8000;
 
 const server = http.createServer(app);
 
+// Run once 
+mongoose.connection.once('open', ()=>{
+    console.log('mongodb connection ready');
+});
+// error connection if happen
+mongoose.connection.on('error', (err)=>{
+    console.error(err);
+});
+
 // Be careful Not await outside function because not recognize PROMISE !!
 async function startServer(){
-
-    await mongoose.connect(MONGO_URL,{
-        
-    });
+    await mongoose.connect(MONGO_URL);
 
     await loadPlanetData();
 
