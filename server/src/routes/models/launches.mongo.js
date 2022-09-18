@@ -39,3 +39,7 @@ const launchesSchema = new mongoose.Schema({
     },
     customers:[String],
 });
+
+// first argument: Collection
+// MongoDb must be plural
+module.exports = mongoose.model('Launch', launchesSchema);
